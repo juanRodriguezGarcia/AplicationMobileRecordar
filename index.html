@@ -11,9 +11,9 @@
 <body> 
 <div data-role="page" id="inicio">
     <div data-role="header" style="background-color:#09F">
-        	<h1>Autenticacion de Usuario</h1>
+        	<h1>Autenticacion</h1>
     </div>
-    <div data-role="content">	
+    <div data-role="content"  id="inicio">	
         <form id="formulario" >
         <label> Usuario </label>
         <input type="text" id="nombredeusuario" name="nombredeusuario">
@@ -23,14 +23,15 @@
         </form>	
     </div>
 </div>
-<div data-role="page" id="home"  style=" display:none">
+<div data-role="page" id="home">
      <div data-role="header">
             <h1>Bienvenido</h1>
      </div>        
      <div data-role="content">	
             <h2> Bienvenido a la aplicacion </h2>
             <h3> Su usuario y password son válidos</h3>
-     </div>
+            <input  type="button"  value="Volver"  id="botton_volver">
+       </div>
 </div>
 </body>
 </html>

@@ -21,3 +21,8 @@ $(document).ready(function () {
 		return false;
 	})
 });
+$(document).ready(function () {
+		$('#botton_volver').click(function() {
+		$.mobile.changePage("#inicio")
+		});
+	});
