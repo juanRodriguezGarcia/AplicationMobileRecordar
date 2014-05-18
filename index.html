@@ -14,24 +14,71 @@
         	<h1>Autenticacion</h1>
     </div>
     <div data-role="content"  id="inicio">	
-        <form id="formulario" >
+        <form id="formulario">
         <label> Usuario </label>
         <input type="text" id="nombredeusuario" name="nombredeusuario">
         <label> Password </label>
-        <input type="password" id="clave" name="clave" >
+        <input type="password" id="clave" name="clave">
         <input type="submit" value="Login" id="botonLogin">
         </form>	
     </div>
 </div>
 <div data-role="page" id="home">
      <div data-role="header">
-            <h1>Bienvenido</h1>
+     <center>
+          Usuario:<span id="nombre_usuario"  style="font-size:12px"></span>
+     </center>
      </div>        
      <div data-role="content">	
-            <h2> Bienvenido a la aplicacion </h2>
-            <h3> Su usuario y password son válidos</h3>
-            <input  type="button"  value="Volver"  id="botton_volver">
-       </div>
+   			<table border="0" width="102%"  style="border:0px solid  gray">
+            <tr>
+            <td>
+            Nombre
+            </td>
+            <td>
+            <input  type="text"  value=""  id="dato1">
+            </td>
+            </tr>
+            <tr>
+            <td>
+            Apellido
+            </td>
+            <td>
+            <input  type="text"  value=""  id="dato2">
+            </td>
+            </tr>
+            <tr>
+            <td>
+            Sexo
+            </td>
+            <td>
+            <select  id="sexo"  name="sexo">
+            <option>M</option>
+            <option>F</option>
+            </select>
+            </td>
+            </tr>
+            <tr>
+            <td>
+            Ciudad
+            </td>
+            <td>
+     		 <select id="select11"  name="select11">
+            <option value="0">Seleccione</option> 
+            </select>
+            </td>
+            </tr>
+            <tr>
+            <td style="width:50%">
+            <input  type="button"  value="Guardar"  id="botton_agregar" >
+      
+     		</td>
+            <td style="width:50%">
+            <input  type="button"  value="Volver"  id="botton_volver" >
+            </td>
+            </tr>
+            </table>
+     </div>
 </div>
 </body>
 </html>
