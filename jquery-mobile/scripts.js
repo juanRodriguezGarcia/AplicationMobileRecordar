@@ -8,12 +8,11 @@ $(document).ready(function () {
 		 //alert(datosPassword)
 		$.getJSON(archivoValidacion, { usuario:datosUsuario ,password:datosPassword})
 		.done(function(respuestaServer) {
-		//alert("\nGenerado en: " + respuestaServer.hora + "\n" +respuestaServer.generador+ "\n" +respuestaServer.respuesta+ "\n" +respuestaServer.validacion)
 				if(respuestaServer.validacion == "OK"){
 				var nombreUsuario= respuestaServer.nombre;
 				/// si la validacion es correcta, muestra la pantalla "home"
 				alert('DATOS VALIDOS');
-				$.mobile.changePage("#home");
+				$.mobile.changePage("#menu");
 				document.getElementById("nombre_usuario").innerHTML=nombreUsuario;
 				var valor_select=respuestaServer.select1;
 				var valor_select_value=respuestaServer.select_value;
@@ -38,14 +37,61 @@ $(document).ready(function () {
 });
 $(document).ready(function () {
 		$('#botton_volver').click(function() {
-		$.mobile.changePage("#inicio")
+		$.mobile.changePage("#menu")
 		});
 	});
+	
+$(document).ready(function () {
+		$('#botton_guardar').click(function() {
+		$.mobile.changePage("#menu_guardar")
+		});
+	});	
+	
+$(document).ready(function () {
+		$('#botton_buscar').click(function() {
+		$.mobile.changePage("#menu_consultar")
+		});
+	});		
+	
+	
 	
 $(document).ready(function () {
 		$('#botton_agregar').click(function() {
 		//$.mobile.changePage("#inicio")
 		var ciudad = $("#select11").val();
-		alert(ciudad);
+		var sexo= $("#sexo").val();
+		var dato1 = $("#dato1").val();
+		var dato2 = $("#dato2").val();
+		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/guardar.php?jsoncallback=?"
+		$.getJSON(archivoValidacion, { dato1:dato1 ,dato2:dato2,ciudad:ciudad,sexo:sexo})		
+		.done(function(respuestaServer) {
+				if(respuestaServer.validacion == "OK"){
+				alert("DATOS INGRESADOS OK");
+				}else{
+				/// ejecutar una conducta cuando la validacion falla
+				alert("ERROR INGRESO DE DATOS");
+				}
+		});
+		return false;
+		});
+	});	
+	
+	
+	$(document).ready(function () {
+		$('#botton_buscar_datos').click(function() {
+		var dato1 = $("#dato1").val();
+		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/buscar.php?jsoncallback=?"
+		$.getJSON(archivoValidacion, {dato1:dato1})		
+		.done(function(respuestaServer) {
+				if(respuestaServer.validacion == "OK"){
+				//alert("DATOS DEVUELTOS OK");
+				document.getElementById("tabla_busqueda").innerHTML=respuestaServer.tabla;
+				//alert(respuestaServer.tabla);
+				}else{
+				/// ejecutar una conducta cuando la validacion falla
+				alert("ERROR INGRESO DE DATOS");
+				}
+		});
+		return false;
 		});
 	});	

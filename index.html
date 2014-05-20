@@ -13,7 +13,7 @@
     <div data-role="header" style="background-color:#09F">
         	<h1>Autenticacion</h1>
     </div>
-    <div data-role="content"  id="inicio">	
+    <div data-role="content"  id="guardar">	
         <form id="formulario">
         <label> Usuario </label>
         <input type="text" id="nombredeusuario" name="nombredeusuario">
@@ -23,14 +23,31 @@
         </form>	
     </div>
 </div>
-<div data-role="page" id="home">
+
+ <div data-role="page" id="menu">
+ <div data-role="header">
+ <center>
+      Usuario:<span id="nombre_usuario"  style="font-size:12px"></span>
+ </center>
+ </div>     
+      <div data-role="content"  id="menu">	
+            <input  type="button"  value="Consultar"  id="botton_buscar" >
+            <input  type="button"  value="Guardar"  id="botton_guardar" >
+            <input  type="button"  value="Eliminar"  id="botton_eliminar">
+            <input  type="button"  value="Editar"  id="botton_editar" >
+            <input  type="button"  value="Salir"  id="botton_salir" >
+      </div>
+</div>
+
+
+<div data-role="page" id="menu_guardar">
      <div data-role="header">
      <center>
-          Usuario:<span id="nombre_usuario"  style="font-size:12px"></span>
+          Usuario:<span id="nombre_usuario2"  style="font-size:12px"></span>
      </center>
      </div>        
      <div data-role="content">	
-   			<table border="0" width="102%"  style="border:0px solid  gray">
+   			<table border="0" width="102%"  style="border:0px solid  gray;;">
             <tr>
             <td>
             Nombre
@@ -80,5 +97,18 @@
             </table>
      </div>
 </div>
+
+<div data-role="page" id="menu_consultar">
+     <div data-role="header">
+     <center>
+          Usuario:<span id="nombre_usuario22"  style="font-size:12px"></span>
+     </center>
+     </div>        
+     <div data-role="content">	
+     <input  type="button"  value="Buscar"  id="botton_buscar_datos" >
+   		<div  id="tabla_busqueda"></div>
+     </div>
+</div>
+
 </body>
 </html>
