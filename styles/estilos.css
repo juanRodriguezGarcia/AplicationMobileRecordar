@@ -1,0 +1,24 @@
+#wraper{
+	margin:0 auto;
+	overflow:hidden;
+	width:960px;
+	height:auto;
+}
+
+.loaderAjax{
+	display: none;
+}
+
+#contenedorImagen .fotografia{
+	margin: 20px auto;
+	width:120px;
+	height:120px;
+	border: 1px solid #ccc;
+	-moz-border-radius: 8px 8px 8px 8px;
+	-webkit-border-radius: 8px 8px 8px 8px;
+	border-radius: 8px 8px 8px 8px;
+}
+
+#wraper .contentLayout{
+    text-align: center;
+}

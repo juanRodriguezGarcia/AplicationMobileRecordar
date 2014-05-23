@@ -4,10 +4,50 @@
 <meta charset="utf-8">
 <title>Aplic. Web de jQuery Mobile</title>
 <link href="jquery-mobile/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="style/estilos.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-mobile/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/AjaxUpload.2.0.min.js"></script>
 <script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
 <script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
 <script src="jquery-mobile/scripts.js"></script>
 </head> 
+<script>
+$(document).ready(function(){
+    var button = $('#upload_button'), interval;
+    new AjaxUpload('#upload_button', {
+        action: 'http://127.0.0.1:8080/jQueryparafotosutlizandoAjaxUpLoadyPHP-master/includes/uploadFile.php',
+        onSubmit : function(file , ext){
+        if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){
+            // extensiones permitidas
+            alert('Error: Solo se permiten imagenes');
+            // cancela upload
+            return false;
+        } else {
+                      // Cambio el texto del boton y lo deshabilito
+            button.text('Cargando  imagen');
+            this.disable();
+        }
+        },
+        onComplete: function(file, response){
+            button.text('Upload  imagen  exitosamente');
+            // habilito upload button       
+			respuesta = $.parseJSON(response);               
+					if(respuesta.respuesta == 'done'){
+						alert("echo");
+						$('#fotografia').removeAttr('scr');
+						$('#fotografia').attr('src','images/' + respuesta.fileName);
+						$('#loaderAjax').show();
+						// alert(respuesta.mensaje);
+					}
+					else{
+						alert(respuesta.mensaje);
+					}
+					$('#loaderAjax').hide();	
+					this.enable();	
+        }  
+    });
+});
+</script>
 <body> 
 <div data-role="page" id="inicio">
     <div data-role="header" style="background-color:#09F">
@@ -35,6 +75,7 @@
             <input  type="button"  value="Guardar"  id="botton_guardar" >
             <input  type="button"  value="Eliminar"  id="botton_eliminar">
             <input  type="button"  value="Editar"  id="botton_editar" >
+            <input  type="button"  value="Subir foto"  id="botton_subir_foto" >
             <input  type="button"  value="Salir"  id="botton_salir" >
       </div>
 </div>
@@ -88,7 +129,6 @@
             <tr>
             <td style="width:50%">
             <input  type="button"  value="Guardar"  id="botton_agregar" >
-      
      		</td>
             <td style="width:50%">
             <input  type="button"  value="Volver"  id="botton_volver" >
@@ -107,6 +147,25 @@
      <div data-role="content">	
      <input  type="button"  value="Buscar"  id="botton_buscar_datos" >
    		<div  id="tabla_busqueda"></div>
+     </div>
+</div>
+
+<div data-role="page" id="menu_subir_foto">
+     <div data-role="header">
+     <center>
+          Usuario:<span id="nombre_usuario22"  style="font-size:12px"></span>
+     </center>
+     </div>        
+     <div data-role="content">	     
+                    <div id="upload_button">Upload</div>
+               
+                    	    	<div id="contenedorImagen">
+	    						<img id="fotografia" class="fotografia" src="http://127.0.0.1:8080/jQueryparafotosutlizandoAjaxUpLoadyPHP-master/img/nofoto.jpg">
+	    						</div>
+                                <div class="loaderAjax" id="loaderAjax">
+                                <img src="http://127.0.0.1:8080/jQueryparafotosutlizandoAjaxUpLoadyPHP-master/img/default-loader.gif">
+                                <span>Publicando Fotografía...</span>
+                                </div>
      </div>
 </div>
 

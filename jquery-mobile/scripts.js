@@ -52,7 +52,11 @@ $(document).ready(function () {
 		$.mobile.changePage("#menu_consultar")
 		});
 	});		
-	
+	$(document).ready(function () {
+		$('#botton_subir_foto').click(function() {
+		$.mobile.changePage("#menu_subir_foto")
+		});
+	});	
 	
 	
 $(document).ready(function () {
@@ -95,3 +99,49 @@ $(document).ready(function () {
 		return false;
 		});
 	});	
+	
+	
+	//////FUNCION  SUBIR  FOTOS  AL SERVIDOR  MOVILE //////
+	/*
+	    $(document).ready(function () {
+    	// Botón para subir la firma
+		var btn_firma = $('#addImage'), interval;
+			new AjaxUpload('#addImage', {
+				action: 'http://juanrodriguezg.site90.com/webservices/uploadFile.php',
+				onclick : function(file , ext){
+				
+						alert("hollaaaa");
+					if (! (ext && /^(jpg|png)$/.test(ext))){
+						// extensiones permitidas
+						alert('Sólo se permiten Imagenes .jpg o .png');
+						// cancela upload
+						return false;
+					} else {
+						$('#loaderAjax').show();
+						btn_firma.text('Espere por favor');
+						this.disable();
+					}
+				},
+				onComplete: function(file, response){
+
+					// alert(response);
+					
+					btn_firma.text('Cambiar Imagen');
+					
+					respuesta = $.parseJSON(response);
+
+					if(respuesta.respuesta == 'done'){
+						$('#fotografia').removeAttr('scr');
+						$('#fotografia').attr('src','http://juanrodriguezg.site90.com/img/' + respuesta.fileName);
+						$('#loaderAjax').show();
+						// alert(respuesta.mensaje);
+					}
+					else{
+						alert(respuesta.mensaje);
+					}
+					$('#loaderAjax').hide();	
+					this.enable();	
+				}
+		});
+    });
+	*/
