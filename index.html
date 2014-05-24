@@ -15,7 +15,7 @@
 $(document).ready(function(){
     var button = $('#upload_button'), interval;
     new AjaxUpload('#upload_button', {
-        action: 'http://127.0.0.1:8080/jQueryparafotosutlizandoAjaxUpLoadyPHP-master/includes/uploadFile.php',
+        action: 'http://juanrodriguezg.site90.com/webservices/uploadFile.php?jsoncallback=?',
         onSubmit : function(file , ext){
         if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){
             // extensiones permitidas
@@ -33,9 +33,9 @@ $(document).ready(function(){
             // habilito upload button       
 			respuesta = $.parseJSON(response);               
 					if(respuesta.respuesta == 'done'){
-						alert("echo");
+						alert("LA IMAGEN SE SUBIO EXITOSAMENTE");
 						$('#fotografia').removeAttr('scr');
-						$('#fotografia').attr('src','images/' + respuesta.fileName);
+						$('#fotografia').attr('src','http://juanrodriguezg.site90.com/img/' + respuesta.fileName);
 						$('#loaderAjax').show();
 						// alert(respuesta.mensaje);
 					}
@@ -160,10 +160,10 @@ $(document).ready(function(){
                     <div id="upload_button">Upload</div>
                
                     	    	<div id="contenedorImagen">
-	    						<img id="fotografia" class="fotografia" src="http://127.0.0.1:8080/jQueryparafotosutlizandoAjaxUpLoadyPHP-master/img/nofoto.jpg">
+	    						<img id="fotografia" class="fotografia" src="http://juanrodriguezg.site90.com/img/nofoto.jpg">
 	    						</div>
                                 <div class="loaderAjax" id="loaderAjax">
-                                <img src="http://127.0.0.1:8080/jQueryparafotosutlizandoAjaxUpLoadyPHP-master/img/default-loader.gif">
+                                <img src="http://juanrodriguezg.site90.com/img/default-loader.gif">
                                 <span>Publicando Fotografía...</span>
                                 </div>
      </div>
