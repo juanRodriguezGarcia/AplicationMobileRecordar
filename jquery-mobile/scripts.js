@@ -46,19 +46,24 @@ $(document).ready(function () {
 		$.mobile.changePage("#menu_guardar")
 		});
 	});	
-	
+	/////////////////////////////////////////////////////////
 $(document).ready(function () {
 		$('#botton_buscar').click(function() {
 		$.mobile.changePage("#menu_consultar")
 		});
-	});		
+	});	
+	////////////////////////////////////////////////////////	
 	$(document).ready(function () {
 		$('#botton_subir_foto').click(function() {
 		$.mobile.changePage("#menu_subir_foto")
 		});
 	});	
-	
-	
+	////////////////////////////////////////////////////
+		$(document).ready(function () {
+		$('#botton_ver_mapa').click(function() {
+		$.mobile.changePage("#menu_mapa")
+		});
+	});	
 $(document).ready(function () {
 		$('#botton_agregar').click(function() {
 		//$.mobile.changePage("#inicio")
