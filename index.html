@@ -13,10 +13,13 @@
 <script src="jquery-mobile/scripts.js"></script>
 </head> 
 <script>
+        var map;
+        var latitud;
+        var longitud;
 				function getGPS(){
 					//alert("hola  acceso");
 					if(navigator.geolocation){
-						navigator.geolocation.getCurrentPosition(showGPS,gpsError);
+						navigator.geolocation.getCurrentPosition(showGPS,errores);
 						}else{
 						
 							alert("No funciona  el gps")
@@ -24,20 +27,63 @@
 					}
 				function gpsError(error){
 						alert("No funcion el gps");
+						initialize('4.7214847','-74.0567932')
+						//google.maps.event.addDomListener(window, 'load', initialize2);
 						//alert("GPS ERROR:"+error.code+","+error.message);
 					}
+		function errores(err) {
+            if (err.code == 0) {
+              alert("Oops! Algo ha salido mal");
+            }
+            if (err.code == 1) {
+              alert("Oops! No has aceptado compartir tu posición");
+            }
+            if (err.code == 2) {
+              alert("Oops! No se puede obtener la posición actual");
+            }
+            if (err.code == 3) {
+              alert("Oops! Hemos superado el tiempo de espera");
+            }
+        }
 				function showGPS(position){
-					var lat=position.coords.latitude;
-					var long=position.coords.longitude;
+					var latitud=position.coords.latitude;
+					var longitud=position.coords.longitude;
 					alert(lat+"--"+long);
-					google.maps.event.addDomListener(window, 'load', initialize2);
+					cargarMapa();
 					} 	
 					//getGPS();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	function cargarMapa() {
+	latitud='4.7214847';
+	longitud='-74.0567932';
+	alert(latitud)
+	var latlon = new google.maps.LatLng(latitud,longitud);
+	/* Creamos un punto con nuestras coordenadas */
+	var myOptions = {
+		zoom: 17,
+		center: latlon,
+		 /* Definimos la posicion del mapa con el punto */
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	/*Configuramos una serie de opciones como el zoom del mapa y el tipo.*/
+	map = new google.maps.Map($("#map_canvas").get(0), myOptions);
+	 /*Creamos el mapa y lo situamos en su capa */
+	 var coorMarcador = new google.maps.LatLng(latitud,longitud); 
+	 /Un nuevo punto con nuestras coordenadas para el marcador (flecha) */
+	 // Creamos el mapa y le pasamos las opciones y el id del contenedor en el que se va a alojar
+	 //var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);    
+	var marcador = new google.maps.Marker({
+	/*Creamos un marcador*/
+			position: coorMarcador, /*Lo situamos en nuestro punto */
+			map: map, /* Lo vinculamos a nuestro mapa */
+			title: "Dónde estoy?" 
+	});	
+}				
 				
+				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+				/*
 						function initialize2(){
-							alert();
+						
 								initialize('4.7214847','-74.0567932')
 						}
 						// VARIABLES GLOBALES JAVASCRIPT
@@ -48,6 +94,7 @@
 						var map;
 						// INICiALIZACION DE MAPA
 						function initialize(_lat2,_lng2) {
+							alert(_lat2);
 								geocoder = new google.maps.Geocoder();	
 								//SE CREA EL CENTRO  DONDE SE  UBICARA EL MARCADOR  A PARTIR DE LA LONGITUD Y LATITUD  OPTENIDA DE LAS VARIABLE POST  ENVIADAS POR ELFORMULARIO 
 								latLng = new google.maps.LatLng(_lat2,_lng2);
@@ -71,8 +118,9 @@
 								draggable: false
 								});
 						}
+						google.maps.event.addDomListener(window, 'load', initialize2);
 						// Permito la gesti¢n de los eventos DOM, INICIALIZA LA FUCNION
-
+*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $(document).ready(function(){
     var button = $('#upload_button'), interval;
@@ -238,14 +286,28 @@ $(document).ready(function(){
 <div data-role="page" id="menu_mapa">
      <div data-role="header">
      <center>
-          Usuario:<span id="nombre_usuario22"  style="font-size:12px"></span>
+          <span id="nombre_usuario22"  style="font-size:12px">Localizador</span>
      </center>
-     </div>        
-     <div data-role="content">	     
-			<input  type="button"  value="ver_mapa"  onClick="getGPS()">
-            <div id="mi_mapa" style="width:100%;height:100%; background-color:#dddada;float:right;">   
-			</div>
-     </div>
+     </div>   
+     <div data-role="content">	
+    <section>
+        <article>
+            <div id='map_canvas' style='width:100%; height:400px;'></div>
+        </article>
+    </section> 
+        <section>
+        <article style="text-align:center">
+            Mapa
+        </article>
+    </section> 
+        <section>
+        <article>
+    <input  type="button"  value="ver_mapa"  onClick="cargarMapa()">
+        </article>
+    </section> 
+ 
+	</div>	
+
 </div>
 </body>
 </html>
