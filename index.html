@@ -119,20 +119,18 @@ $(document).ready(function(){
 </script>
 <body> 
 <div data-role="page" id="inicio">
-    <div data-role="header" style="background-color:#09F">
-        	<h1>Autenticacion</h1>
+    <div data-role="header">
+        	<h1>TRAZABILIDAD</h1>
     </div>
     <div data-role="content"  id="guardar">	
         <form id="formulario">
         <center>
-        <!--<img src="img/login.png" width="50" height="50" >-->
+        <img id="fotografia" class="fotografia" src="http://juanrodriguezg.site90.com/img/cbc.PNG">
         </center>
-        <br>
-        <label> Usuario </label>
+       
+        <H1> Usuario </H1>
         <input type="text" id="nombredeusuario" name="nombredeusuario">
-        <label> Password </label>
-        <input type="password" id="clave" name="clave">
-        <input type="submit" value="Login" id="botonLogin">
+        <input type="submit"  id="botonLogin"   value="Ingresar"  data-icon="star"   data-iconpos="right" data-theme="a">
         </form>	
     </div>
 </div>
@@ -216,13 +214,18 @@ $(document).ready(function(){
      <div data-role="header">
      <center>
           Usuario:<span id="nombre_usuario22"  style="font-size:12px"></span>
-     </center>
-     </div>        
-     
-     <input  type="button"  value="Buscar"  id="botton_buscar_datos" >
-   		<div  id="tabla_busqueda" style="width:100%"></div>
-     
+     </div>            
+       <img id="fotografia" class="fotografia" src="http://juanrodriguezg.site90.com/img/brasa.PNG">
+        </center>
+             <div data-role="controlgroup" data-type="horizontal">
+             <center>
+              <input  data-mini="true"  type="button"  value="Buscar"  id="botton_buscar_datos"    data-icon="search"   data-iconpos="right" data-theme="a">
+   	 		  <input  data-mini="true" type="button"  value="Cerrar Sesion"  id="botton_cerrar_sesion"    data-icon="back"   data-iconpos="right" data-theme="b" width="48%">
+   	</center>
+             </div>
+    <div  id="tabla_busqueda" style="width:100%"></div>
 </div>
+
 
 <div data-role="page" id="menu_subir_foto">
      <div data-role="header">
