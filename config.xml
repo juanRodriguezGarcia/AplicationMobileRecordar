@@ -4,10 +4,10 @@
     id        = "com.phonegap.example"
     version   = "1.0.0">
 
-<name>APLICACION GRUPO RECORDAR</name>
+<name>APLICACION</name>
 
 <description>
-APLICACION   GRUPO RECORDAR
+DEMO
 </description>
 
 <author href="https://example.com" email="you@example.com">

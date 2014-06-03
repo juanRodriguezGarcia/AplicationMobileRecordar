@@ -13,7 +13,7 @@ $(document).ready(function () {
 				var nombreUsuario= respuestaServer.nombre;
 				/// si la validacion es correcta, muestra la pantalla "home"
 				alert('DATOS VALIDOS');
-				$.mobile.changePage("#menu_consultar");
+				$.mobile.changePage("#menu");
 				document.getElementById("nombre_usuario22").innerHTML=nombreUsuario;
 				var valor_select=respuestaServer.select1;
 				var valor_select_value=respuestaServer.select_value;
