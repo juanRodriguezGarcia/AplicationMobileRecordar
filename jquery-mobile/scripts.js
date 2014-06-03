@@ -65,6 +65,13 @@ $(document).ready(function () {
 		$.mobile.changePage("#menu_mapa")
 		});
 	});	
+	////////////////////////////////////////////////////
+		$(document).ready(function () {
+		$('#botton_picada_mundial').click(function() {
+		$.mobile.changePage("#menu_picada_mundial")
+		});
+	});	
+	////////////////////////////////////////////////////
 $(document).ready(function () {
 		$('#botton_agregar').click(function() {
 		//$.mobile.changePage("#inicio")
