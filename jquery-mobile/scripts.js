@@ -4,7 +4,7 @@ $(document).ready(function () {
 	$('#formulario').submit(function() {
 		// recolecta los valores que inserto el usuario
 		var datosUsuario = $("#nombredeusuario").val()
-		var datosPassword = $("#clave").val()
+		var datosPassword = "";
 		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/server2.php?jsoncallback=?"
 		 //alert(datosPassword)
 		$.getJSON(archivoValidacion, { usuario:datosUsuario ,password:datosPassword})
@@ -13,7 +13,7 @@ $(document).ready(function () {
 				var nombreUsuario= respuestaServer.nombre;
 				/// si la validacion es correcta, muestra la pantalla "home"
 				//alert('DATOS VALIDOS');
-				$.mobile.changePage("#menu");
+				$.mobile.changePage("#inicio");
 				document.getElementById("nombre_usuario22").innerHTML=nombreUsuario;
 				var valor_select=respuestaServer.select1;
 				var valor_select_value=respuestaServer.select_value;
@@ -38,7 +38,7 @@ $(document).ready(function () {
 });
 $(document).ready(function () {
 		$('#botton_volver').click(function() {
-		$.mobile.changePage("#menu")
+		$.mobile.changePage("#inicio")
 		});
 	});
 	
@@ -62,7 +62,7 @@ $(document).ready(function () {
 	////////////////////////////////////////////////////
 		$(document).ready(function () {
 		$('#botton_ver_mapa').click(function() {
-		$.mobile.changePage("#menu_mapa")
+		$.mobile.changePage("#menu_maapa")
 		});
 	});	
 	////////////////////////////////////////////////////
@@ -95,7 +95,7 @@ $(document).ready(function () {
 	
 	
 	$(document).ready(function () {
-		$('#botton_buscar_datos').click(function() {
+		$('#botton_buscar').click(function() {
 		var dato1 = $("#dato1").val();
 		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/buscar.php?jsoncallback=?"
 		$.getJSON(archivoValidacion, {dato1:dato1})		
@@ -114,47 +114,3 @@ $(document).ready(function () {
 	});	
 	
 	
-	//////FUNCION  SUBIR  FOTOS  AL SERVIDOR  MOVILE //////
-	/*
-	    $(document).ready(function () {
-    	// Botón para subir la firma
-		var btn_firma = $('#addImage'), interval;
-			new AjaxUpload('#addImage', {
-				action: 'http://juanrodriguezg.site90.com/webservices/uploadFile.php',
-				onclick : function(file , ext){
-				
-						alert("hollaaaa");
-					if (! (ext && /^(jpg|png)$/.test(ext))){
-						// extensiones permitidas
-						alert('Sólo se permiten Imagenes .jpg o .png');
-						// cancela upload
-						return false;
-					} else {
-						$('#loaderAjax').show();
-						btn_firma.text('Espere por favor');
-						this.disable();
-					}
-				},
-				onComplete: function(file, response){
-
-					// alert(response);
-					
-					btn_firma.text('Cambiar Imagen');
-					
-					respuesta = $.parseJSON(response);
-
-					if(respuesta.respuesta == 'done'){
-						$('#fotografia').removeAttr('scr');
-						$('#fotografia').attr('src','http://juanrodriguezg.site90.com/img/' + respuesta.fileName);
-						$('#loaderAjax').show();
-						// alert(respuesta.mensaje);
-					}
-					else{
-						alert(respuesta.mensaje);
-					}
-					$('#loaderAjax').hide();	
-					this.enable();	
-				}
-		});
-    });
-	*/

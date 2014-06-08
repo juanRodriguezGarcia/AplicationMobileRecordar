@@ -5,7 +5,7 @@
 <title>Aplic. Web de jQuery Mobile</title>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <link href="jquery-mobile/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
-<link href="style/estilos.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="styles/estilos.css">
 <script src="jquery-mobile/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="jquery-mobile/AjaxUpload.2.0.min.js"></script>
 <script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
@@ -56,7 +56,7 @@
 	function cargarMapa() {
 	latitud='4.7214847';
 	longitud='-74.0567932';
-	alert(latitud)
+	//alert(latitud)
 	var latlon = new google.maps.LatLng(latitud,longitud);
 	/* Creamos un punto con nuestras coordenadas */
 	var myOptions = {
@@ -69,6 +69,11 @@
 	map = new google.maps.Map($("#map_canvas").get(0), myOptions);
 	 /*Creamos el mapa y lo situamos en su capa */
 	 var coorMarcador = new google.maps.LatLng(latitud,longitud); 
+	 								//AGREGA  UN DOCUMENTO  KML SUDIBO EN UN SERVIDOR  EN ESTE CASO SESUBIO EN UN SITIO PROPIO DE GMIAL CREADO ATRAVES DE UNA CUENTA  EN ESTE CASO LA PERSONAL
+								var ctaLayer = new google.maps.KmlLayer({
+								url: "http://juanrodriguezg.site90.com/PPCBOGOTA.kml"
+								});
+								ctaLayer.setMap(map);
 	 /Un nuevo punto con nuestras coordenadas para el marcador (flecha) */
 	 // Creamos el mapa y le pasamos las opciones y el id del contenedor en el que se va a alojar
 	 //var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);    
@@ -118,43 +123,43 @@ $(document).ready(function(){
 });
 </script>
 <body> 
-<div data-role="page" id="inicio">
-    <div data-role="header">
-        	<h1>TRAZABILIDAD</h1>
-    </div>
-    <div data-role="content"  id="guardar">	
-        <form id="formulario">
-        <center>
-      <img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/cbc.PNG">
-        </center>
-       
-        <H1> Usuario </H1>
-        <input type="text" id="nombredeusuario" name="nombredeusuario">
-        <input type="submit"  id="botonLogin"   value="Ingresar"  data-icon="star"   data-iconpos="right" data-theme="a">
-        </form>	
-    </div>
+<!--LOGOIN-->
+<div data-role="page" id="login">
+<div data-role="content"  id="guardar">	
+<center>
+<form id="formulario" style="position:absolute; margin-top:40%; width:96%">
+<input type="hidden" id="nombredeusuario" name="nombredeusuario"  value="asell">
+<input type="submit"  id="botonLogin"   value="Bienvenido"  data-icon="star"   data-iconpos="right" data-theme="a">
+</form>	
+</center>
 </div>
- <div data-role="page" id="menu">
- <div data-role="header">
- <center>
-      Usuario:<span id="nombre_usuario"  style="font-size:12px"></span>
- </center>
- </div>     
-      <div data-role="content"  id="menu">	
+</div>
+<!--FIN LOGIN-->
+
+
+
+<!--INICIO-->
+<div data-role="page" id="inicio">
+    <div data-role="content"  id="guardar">	
             <input  type="button"  value="Ver productos"  id="botton_buscar" >
             <input  type="button"  value="Realizar pedido"  id="botton_guardar" >
             <input  type="button"  value="La picada del mundial"  id="botton_picada_mundial" >
             <input  type="button"  value="Georeferenciacion"  id="botton_ver_mapa" >
             <input  type="button"  value="Salir"  id="botton_salir" >
             <input  type="hidden"  value="Subir foto"  id="botton_subir_foto"  >
-      </div>
+    </div>
+     <div data-role="footer"   data-position="fixed" id="guardar">	
+		<table  width="100%">
+        <tr  style="text-align:center">
+        <td><a href="www.facebook.com">Facebook</a></td>
+        <td><a href="www.twiter.com">Twiter</a></td>
+        <td><a href="www.youtube.com">Youtube</a></td>
+        </tr>
+        </table>
+    </div>
 </div>
-<div data-role="page" id="menu_guardar">
-     <div data-role="header">
-     <center>
-         <h1>TRAZABILIDAD</h1>
-     </center>
-     </div>        
+<!--END INICIO-->
+<div data-role="page" id="menu_guardar">      
      <div data-role="content">	
    			<table border="0"  width="100%"
             <tr>
@@ -206,28 +211,28 @@ $(document).ready(function(){
      </div>
 </div>
 
+<!--TABLA DE MENU-->
 <div data-role="page" id="menu_consultar">
      <div data-role="header">
      <center>
-     <table  width="100%" style="font-size:15px">
-     <tr>
-     <td  style="border:1px solid gray" align="center">001</td>
-     <td  style="border:1px solid gray"><span id="nombre_usuario22"></span></td>
-     </tr>
-     </table>
-     </div>  
+         <span>MENU</span>
      </center>
-     <center>          
-    <img src="http://juanrodriguezg.site90.com/img/brasa.PNG"  width="100%" height="85" class="fotografia" id="fotografia2">
-        </center>
-             <div data-role="controlgroup" data-type="horizontal">
-             <center>
-              <input  data-mini="true"  type="button"  value="Buscar"  id="botton_buscar_datos"    data-icon="search"   data-iconpos="right" data-theme="a">
-   	 		  <input  data-mini="true" type="button"  value="Cerrar Sesion"  id="botton_cerrar_sesion"    data-icon="back"   data-iconpos="right" data-theme="b" width="48%">
-   	</center>
-             </div>
-    <div  id="tabla_busqueda" style="width:100%"></div>
+     </div>  
+   <div data-role="content">	
+    <div  id="tabla_busqueda" style="width:100%; background-color:#FFF; opacity:0.95"></div>
+   </div>
+         <div data-role="footer"   data-position="fixed" id="guardar">	
+		<table  width="100%">
+        <tr  style="text-align:center">
+        <td><a href="www.facebook.com">Facebook</a></td>
+        <td><a href="www.twiter.com">Twiter</a></td>
+        <td><a href="www.youtube.com">Youtube</a></td>
+        </tr>
+        </table>
+    </div>
 </div>
+<!--FIN TABLA DE MENU-->
+
 <div data-role="page" id="menu_subir_foto">
      <div data-role="header">
      <center>
@@ -246,7 +251,7 @@ $(document).ready(function(){
      </div>
 </div>
 <!-- /////////////////MAPA/////////////////// -->
-<div data-role="page" id="menu_mundial">
+<div data-role="page" id="menu_maapa">
      <div data-role="header">
      <center>
           <span id="nombre_usuario22"  style="font-size:14px">Localizador</span>
@@ -261,46 +266,52 @@ $(document).ready(function(){
 <div data-role="page" id="menu_picada_mundial">
      <div data-role="header">
      <center>
-          Usuario:<span id="nombre_usuario22"  style="font-size:12px"></span>
+         <span>LA PICADA MUNDIALISTA</span>
      </center>
      </div>        
      <div data-role="content">	     
-<table> 
-
-Combos Mundial
-<tr> 
- <td>
-<img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato1.PNG" width="70px">
-  </td>
- <td>
-  <img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato2.PNG" width="70px">
-  </td>
-  <td> 
-  <img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato3.PNG" width="70px">
-   </td>
+		<table style="background-color:white;width:100%; text-align:center;">
+<tr>
+<td class="borde"><img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato1.PNG" width="90px">
+</td>
+<td class="borde">
+<img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato2.PNG" width="90px">
+</td>
+<td class="borde">
+<img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato3.PNG" width="90px">
+</td>
 </tr>
- <tr> 
- <td>  Chuleta valluna </td>
- <td> Pollo  </td>
-  <td center> Combo 2 </td>
+<tr>
+<td class="borde">POLLO</td><td class="borde">BANDEJA</td><td class="borde">EJECUTIVO</td>
 </tr>
 
-<tr> 
- <td> 
- <img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/chuleta.PNG"   width="70px">
- </td>
- <td>
-   <img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato5.PNG" width="70px"> </td>
-  <td>
-    <img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato4.PNG" width="70px"> </td>
+
+<tr>
+<td class="borde"><img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/chuleta.PNG" width="90px">
+</td>
+<td class="borde">
+<img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato4.PNG" width="90px">
+</td>
+<td class="borde">
+<img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato5.PNG" width="90px">
+</td>
 </tr>
- <tr> 
- <td>  Chuleta valluna </td>
- <td> Pollo  </td>
-  <td center> Combo 2 </td>
+<tr>
+<td class="borde">CHULETA</td><td class="borde">BANDEJA</td><td class="borde">EJECUTIVO</td>
 </tr>
-<table>
-     </div>
+
+        </table>
+
+	 </div>
+     <div data-role="footer"   data-position="fixed">	
+		<table  width="100%">
+        <tr  style="text-align:center">
+        <td><a href="www.facebook.com">Facebook</a></td>
+        <td><a href="www.twiter.com">Twiter</a></td>
+        <td><a href="www.youtube.com">Youtube</a></td>
+        </tr>
+        </table>
+    </div>
 </div>
 
 </body>

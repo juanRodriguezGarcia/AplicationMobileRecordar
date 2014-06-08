@@ -1,7 +1,6 @@
 /*! jQuery Mobile v1.0 jquerymobile.com | jquery.org/license */
 /*CONFIGURACION  STYLOS HEADER  se puede  colocar dos colores  en lienar y top*/
 .ui-bar-a{border:1px solid #2a2a2a;background:#B43104;color:white;font-weight:bold;text-shadow:0 -1px 1px #B43104;background-image:-webkit-gradient(linear,left top,left bottom,from(#000),to(#000));background-image:-webkit-linear-gradient(#3c3c3c,#111);background-image:-moz-linear-gradient(#3c3c3c,#111);background-image:-ms-linear-gradient(#3c3c3c,#111);background-image:-o-linear-gradient(#3c3c3c,#111);background-image:linear-gradient(#3c3c3c,#111)}
-
 /*AUN NO SE PARA QUE SIRVE*/
 .ui-bar-a,.ui-bar-a input,.ui-bar-a select,.ui-bar-a textarea,.ui-bar-a button{font-family:Helvetica,Arial,sans-serif}
 .ui-bar-a .ui-link-inherit{color:#0000FF}
@@ -9,21 +8,18 @@
 .ui-bar-a .ui-link:hover{color:#0000FF}
 .ui-bar-a .ui-link:active{color:#0000FF}
 .ui-bar-a .ui-link:visited{color:#0000FF}
+
 .ui-body-a,.ui-dialog.ui-overlay-a{border:1px solid #04B404;background:#04B404;color:#04B404;text-shadow:0 1px 0 #04B404;font-weight:normal;background-image:-webkit-gradient(linear,left top,left bottom,from(#04B404),to(#04B404));background-image:-webkit-linear-gradient(#04B404,#04B404);background-image:-moz-linear-gradient(#04B404,#04B404);background-image:-ms-linear-gradient(#04B404,#04B404);background-image:-o-linear-gradient(#04B404,#04B404);background-image:linear-gradient(#04B404,#04B404)}
-
 .ui-body-a,.ui-body-a input,.ui-body-a select,.ui-body-a textarea,.ui-body-a button{font-family:Helvetica,Arial,sans-serif; font-size:20px}
-
 .ui-body-a .ui-link-inherit{color:#FFFF00}
 .ui-body-a .ui-link{color:#FFFF00;font-weight:bold}
 .ui-body-a .ui-link:hover{color:#FFFF00}
 .ui-body-a .ui-link:active{color:#FFFF00}
 .ui-body-a .ui-link:visited{color:#FFFF00}
 /*AUN NO SE PARA QUE SIRVE*/
-
 /*COLOR  DE FONDO  DE  BOTON THEMA A webkit-gradient  degradado*/
 .ui-btn-up-a{border:1px solid #222;background:#FF8000;font-weight: bolder;color:white;text-shadow:1 -1px 1px #000;background-image:-webkit-gradient(linear,left top,left bottom,from(#F30),to(#F30));background-image:-webkit-linear-gradient(#555,#333);background-image:-moz-linear-gradient(#04B404,#04B404);background-image:-ms-linear-gradient(#555,#333);background-image:-o-linear-gradient(#555,#333);background-image:linear-gradient(#555,#333)}
 .ui-btn-up-a a.ui-link-inherit{color:#DF013A}
-
 /*COLOR  DE FONDO  sobre boton DE  BOTON THEMA A*/
 .ui-btn-hover-a{border:1px solid #000;background:#FF8000;font-weight:bold;color:#fff;text-shadow:0 -1px 1px #000;background-image:-webkit-gradient(linear,left top,left bottom,from(#FF8000),to(#FF8000));background-image:-webkit-linear-gradient(#666,#444);background-image:-moz-linear-gradient(#666,#444);background-image:-ms-linear-gradient(#666,#444);background-image:-o-linear-gradient(#666,#444);background-image:linear-gradient(#666,#444)}
 
