@@ -2,10 +2,10 @@
     background: transparent;
 	background : transparent url(../img/ppc_fondo.png)  no-repeat fixed;
 	width: 100%;
+	height:auto;
 	background-size: 100% 100%; 
 }
 .ui-content{
-	background-image:url(../img/ppc_fondo.png)
     background: transparent;
 }
 .borde{
