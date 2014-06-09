@@ -1,9 +1,11 @@
-.ui-page {
-    background: transparent;
+body{
 	background : transparent url(../img/ppc_fondo.png)  no-repeat fixed;
 	width: 100%;
 	height:auto;
 	background-size: 100% 100%; 
+	}
+.ui-page {
+    background: transparent;
 }
 .ui-content{
     background: transparent;
