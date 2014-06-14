@@ -4,10 +4,10 @@
     id        = "com.phonegap.example"
     version   = "1.0.0">
 
-<name>APLICACION PPC</name>
+<name>APLICACION</name>
 
 <description>
-APLICACION PPC
+APLICACION 
 </description>
 
 <author href="https://example.com" email="you@example.com">

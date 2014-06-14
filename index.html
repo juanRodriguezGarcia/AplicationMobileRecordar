@@ -141,15 +141,35 @@ $(document).ready(function(){
 <!--INICIO-->
 <div data-role="page" id="inicio">
     <div data-role="content">	
-            <input  type="button"  value="Ver productos"  id="botton_buscar" >
-            <input  type="button"  value="Realizar pedido"  id="botton_guardar" >
-            <input  type="button"  value="La picada del mundial"  id="botton_picada_mundial" >
-            <input  type="button"  value="Georeferenciacion"  id="botton_ver_mapa" >
-            <input  type="button"  value="Salir"  id="botton_salir" >
+    <table  width="100%"  align="center"  border="0" >
+    <tr  align="center">
+    <td>
+            <input  type="button"  value="Realizar pedido"  id="botton_guardar" 
+            data-icon="star"   data-iconpos="right" data-theme="a">
             <input  type="hidden"  value="Subir foto"  id="botton_subir_foto"  >
+      </td>
+      </tr>      
+      <tr>
+      <td>
+      <img src="img/ppc_ini.png" width="100%" height="400">
+      </td>
+      </tr>
+            </table>
     </div>
      <div data-role="footer"   data-position="fixed" >	
 		<table  width="100%">
+        <tr  align="center">
+        <td><a href="#" id="botton_buscar">
+        <img src="img/plato2.PNG" width="90"  height="90">
+        </a></td>
+        <td>
+        <a href="#" id="botton_picada_mundial">
+        <img src="img/plato3.PNG" width="90" height="90">
+        </a></td>
+        <td><a href="#" id="botton_ver_mapa">
+        <img src="img/mapa.PNG" width="90" height="90">
+        </a></td>
+        </tr>
         <tr  style="text-align:center">
         <td><a href="www.facebook.com">Facebook</a></td>
         <td><a href="www.twiter.com">Twiter</a></td>
@@ -209,6 +229,15 @@ $(document).ready(function(){
             </tr>
             </table>
      </div>
+        <div data-role="footer"   data-position="fixed">	
+		<table  width="100%">
+        <tr  style="text-align:center">
+        <td><a href="www.facebook.com">Facebook</a></td>
+        <td><a href="www.twiter.com">Twiter</a></td>
+        <td><a href="www.youtube.com">Youtube</a></td>
+        </tr>
+        </table>
+     	</div>
 </div>
 
 <!--TABLA DE MENU-->
@@ -261,6 +290,15 @@ $(document).ready(function(){
             <div id='map_canvas' style='width:100%; height:400px;'></div>
   <input  type="button"  value="ver_mapa"  onClick="cargarMapa()">
 	</div>	
+         <div data-role="footer"   data-position="fixed">	
+		<table  width="100%">
+        <tr  style="text-align:center">
+        <td><a href="www.facebook.com">Facebook</a></td>
+        <td><a href="www.twiter.com">Twiter</a></td>
+        <td><a href="www.youtube.com">Youtube</a></td>
+        </tr>
+        </table>
+    </div>
 </div>
 
 <div data-role="page" id="menu_picada_mundial">
