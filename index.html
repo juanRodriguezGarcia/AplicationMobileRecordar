@@ -90,10 +90,10 @@
   };
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
-		alert("Se cumplio");
+		//alert("Se cumplio");
       directionsDisplay.setDirections(response);
     }else{
-		alert("No Se cumplio");
+		  alert("Error creando ruta");
 		}
   });
 						
@@ -166,7 +166,7 @@ $(document).ready(function(){
     <table  width="100%"  align="center"  border="0">     
       <tr>
       <td >
-      <img src="img/imagen1.PNG" width="100%" height="360px">
+      <img src="img/imagen1.png" width="100%" height="360px">
       </td>
       </tr>
             </table>
@@ -321,6 +321,9 @@ $(document).ready(function(){
 	</div>	
          <div data-role="footer"   data-position="fixed">	
 		<table  width="100%">
+        <tr>
+        <td  colspan="3"  align="center"><a href="#"  onClick="getGPS()">>>VER MAPA<<</a> </td>
+        </tr>
         <tr  style="text-align:center">
         <td><a href="www.facebook.com">Facebook</a></td>
         <td><a href="www.twiter.com">Twiter</a></td>
