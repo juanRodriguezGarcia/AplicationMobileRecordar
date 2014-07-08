@@ -63,6 +63,7 @@ $(document).ready(function () {
 		$(document).ready(function () {
 		$('#botton_ver_mapa').click(function() {
 		$.mobile.changePage("#menu_maapa")
+		getGPS();
 		});
 	});	
 	////////////////////////////////////////////////////
