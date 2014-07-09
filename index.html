@@ -17,8 +17,9 @@
         var latitud;
         var longitud;
 				function getGPS(){
-					alert("ACCESO");
+					alert("OPTENER COORDENADAS");
 					if(navigator.geolocation){
+						alert("COORDENADAS ");
 						navigator.geolocation.getCurrentPosition(showGPS,errores);
 						}else{
 					    alert("No funciona  el gps");
@@ -45,6 +46,9 @@
             }
             if (err.code == 2) {
               alert("Oops! No se puede obtener la posición actual");
+			  			lat='4.7214847';
+	                    long='-74.0567932';
+						cargarMapa(lat,long)
             }
             if (err.code == 3) {
               alert("Oops! Hemos superado el tiempo de espera");
@@ -56,7 +60,7 @@
 					alert(lat+"--"+long);
 					cargarMapa(lat,long);
 					} 	
-					//getGPS();
+					
 ////////////////////////////////////////////////////////////////////////////////////
 	function cargarMapa(latitud,longitud) {
 	var directionsDisplay;
@@ -317,7 +321,7 @@ $(document).ready(function(){
      </center>
      </div>   
      <div data-role="content">	
-            <div id='map_canvas' style='width:100%; height:500px;'></div>
+            <div id='map_canvas' style='width:98%; height:300px;'></div>
 	</div>	
          <div data-role="footer"   data-position="fixed">	
 		<table  width="100%">
