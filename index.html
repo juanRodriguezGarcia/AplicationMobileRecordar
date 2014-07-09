@@ -17,7 +17,7 @@
         var latitud;
         var longitud;
 				function getGPS(){
-					//alert("hola  acceso");
+					alert("ACCESO");
 					if(navigator.geolocation){
 						navigator.geolocation.getCurrentPosition(showGPS,errores);
 						}else{
@@ -53,7 +53,7 @@
 				function showGPS(position){
 					var latitud=position.coords.latitude;
 					var longitud=position.coords.longitude;
-					//alert(lat+"--"+long);
+					alert(lat+"--"+long);
 					cargarMapa(lat,long);
 					} 	
 					//getGPS();
