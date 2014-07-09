@@ -55,8 +55,8 @@
             }
         }
 				function showGPS(position){
-					var latitud=position.coords.latitude;
-					var longitud=position.coords.longitude;
+					var lat=position.coords.latitude;
+					var long=position.coords.longitude;
 					alert(lat+"--"+long);
 					cargarMapa(lat,long);
 					} 	
@@ -321,7 +321,7 @@ $(document).ready(function(){
      </center>
      </div>   
      <div data-role="content">	
-            <div id='map_canvas' style='width:98%; height:300px;'></div>
+            <div id='map_canvas' style='width:99%; height:400px;'></div>
 	</div>	
          <div data-role="footer"   data-position="fixed">	
 		<table  width="100%">
