@@ -13,8 +13,6 @@
 <script src="jquery-mobile/scripts.js"></script>
 </head> 
 <script>
-		var directionsDisplay;
-    	var directionsService = new google.maps.DirectionsService();
         var map;
         var latitud;
         var longitud;
@@ -61,6 +59,8 @@
 					//getGPS();
 ////////////////////////////////////////////////////////////////////////////////////
 	function cargarMapa(latitud,longitud) {
+	var directionsDisplay;
+    var directionsService = new google.maps.DirectionsService();
 	directionsDisplay = new google.maps.DirectionsRenderer();
 	var latlon = new google.maps.LatLng(latitud,longitud);
     var end_ruta = new google.maps.LatLng(4.68734, -74.05856);
@@ -313,7 +313,7 @@ $(document).ready(function(){
 <div data-role="page" id="menu_maapa">
      <div data-role="header">
      <center>
-          <span id="nombre_usuario22"  style="font-size:14px">Localizacion pedido</span>
+          <span  style="font-size:14px">Localizacion pedido</span>
      </center>
      </div>   
      <div data-role="content">	
