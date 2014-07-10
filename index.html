@@ -169,7 +169,7 @@ $(document).ready(function(){
 <body> 
 <!--LOGOIN-->
 <div data-role="page" >
-<div data-role="content" >	
+<div data-role="content">	
 <center>
 <form id="formulario" style="position:absolute; margin-top:40%; width:96%">
 <input type="hidden" id="nombredeusuario" name="nombredeusuario"  value="asell">
@@ -179,7 +179,6 @@ $(document).ready(function(){
 </div>
 </div>
 <!--FIN LOGIN-->
-
 
 
 <!--INICIO-->
@@ -212,7 +211,7 @@ $(document).ready(function(){
         
         <tr>
         <td  width="33%"  align="center">
-        <input  type="button"  value="Menu"  id="botton_picada_mundial" 
+        <input  type="button"  value="Menu"  id="boton_ver_menu" 
         data-icon="star"   data-iconpos="right" data-theme="a">
         </td>
         <td  width="33%"  align="center">
@@ -357,53 +356,62 @@ $(document).ready(function(){
     </div>
 </div>
 
-<div data-role="page" id="menu_picada_mundial">
+<div data-role="page" id="menu_cuenta">
      <div data-role="header">
      <center>
          <span>MENU</span>
      </center>
      </div>        
-     <div data-role="content">	     
-<table style="background-color:white;width:99%; text-align:center;">
-<tr>
-<td class="borde"><img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato1.PNG" width="90px">
-</td>
-<td class="borde">
-<img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato2.PNG" width="90px">
-</td>
-<td class="borde">
-<img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato3.PNG" width="90px">
-</td>
-</tr>
-<tr>
-<td class="borde">POLLO</td><td class="borde">BANDEJA</td><td class="borde">EJECUTIVO</td>
-</tr>
+     <div data-role="content">	  
+    
+  
+  <ul data-role="listview" data-filter="true" data-inset="true" data-theme="b" data-dividertheme="b" data-autodividers="true" data-filter-placeholder="Filtrar lista">
+    <li data-role="list-divider">
+    <h3>Platos</h3>
+    <ul>	
+     <li>
+        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato5.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
+	</li>
+           <li>
+        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato4.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
+	</li>
+       <li>
+        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato3.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
+	</li>
+       <li>
+        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato2.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
+	</li>
+       <li>
+        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato1.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
+	</li>
 
-
-<tr>
-<td class="borde"><img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/chuleta.PNG" width="90px">
-</td>
-<td class="borde">
-<img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato4.PNG" width="90px">
-</td>
-<td class="borde">
-<img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato5.PNG" width="90px">
-</td>
-</tr>
-<tr>
-<td class="borde">CHULETA</td><td class="borde">BANDEJA</td><td class="borde">EJECUTIVO</td>
-</tr>
-<tr>
-<td colspan=2  width="50%">
+    <li><a href="#">Burgos</a></li>	
+    </ul>
+    </li>
+    <li data-role="list-divider"><h3>Bebidas</h3><ul>
+    <li><a href="#">Badajoz</a></li>
+    <li><a href="#">Caceres</a></li>
+    </ul></li>
+    <li data-role="list-divider"><h3>Postres</h3>
+    <ul>
+    <li><a href="#">Arros con leche</a></li>
+    <li><a href="#">Tres leches</a></li>
+    </ul>
+    </li>
+    </ul>
+        
+<div data-role="controlgroup" data-type="horizontal" data-inline="true">  
    <input  type="button"  value="Solicitar"   
    data-icon="navigation"   data-iconpos="right" data-theme="a" id="registrar_usuario">
-  </td>       
- <td  width="50%">     
-   <input  type="button"  value="Ver carrito"   
+   
+      <input  type="button"  value="Ver carrito"   
    data-icon="navigation"   data-iconpos="right" data-theme="a" id="carrito_usuario">
-<td>
-</tr>
-</table>
+</div>
 
 <div data-role="fieldcontain"  style="width:100%; z-index:1; position:absolute; display:none;top:0; left:0; height:400px; background-color:#FFF;text-align:left"  id="tabla_identificacion_cliente">
 <label for="name">INGRESAR DATOS</label><br><br>

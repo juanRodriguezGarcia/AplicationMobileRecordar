@@ -67,8 +67,8 @@ $(document).ready(function () {
 	});	
 	////////////////////////////////////////////////////
 		$(document).ready(function () {
-		$('#botton_picada_mundial').click(function() {
-		$.mobile.changePage("#menu_picada_mundial")
+		$('#boton_ver_menu').click(function() {
+		$.mobile.changePage("#menu_cuenta")
 		});
 	});	
 	////////////////////////////////////////////////////
