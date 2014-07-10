@@ -90,24 +90,6 @@ $(document).ready(function () {
 		$('#registrar_pedido').click(function() {
 		document.getElementById("tabla_identificacion_cliente").style.display="none";
 		var coordenadas=OptenerCoordenadas_cliente();
-		//alert(coordenadas)
-		var identicacion_cliente = $("#identicacion_cliente").val();
-		var nombre_cliente= $("#nombre_cliente").val();
-		var direccion_cliente = $("#direccion_cliente").val();
-		var telefono_cliente = $("#telefono_cliente").val();
-		//alert(nombre_cliente+"-"+direccion_cliente+"-"+telefono_cliente)
-		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/guardar_ubicacion.php?jsoncallback=?"
-		$.getJSON(archivoValidacion, { identicacion_cliente:identicacion_cliente ,nombre_cliente:nombre_cliente,direccion_cliente:direccion_cliente,telefono_cliente:telefono_cliente,coordenadas:coordenadas})		
-		.done(function(respuestaServer) {
-				if(respuestaServer.validacion == "OK"){
-				alert(respuestaServer.datoUno)
-				alert("DATOS INGRESADOS OK");
-				}else{
-				/// ejecutar una conducta cuando la validacion falla
-				alert("ERROR INGRESO DE DATOS");
-				}
-		});
-		return false;	
 		});
 	});	
 	
@@ -118,16 +100,50 @@ $(document).ready(function () {
 					}else{
 					alert("No funciona  el gps");
 					var coordenadas="4.728180000000001,-74.05041";
-					return  coordenadas;
-					//Optener_coordenadas_direccion(4.728180000000001,-74.05041);
-					}
+					var identicacion_cliente = $("#identicacion_cliente").val();
+		var nombre_cliente= $("#nombre_cliente").val();
+		var direccion_cliente = $("#direccion_cliente").val();
+		var telefono_cliente = $("#telefono_cliente").val();
+		//alert(nombre_cliente+"-"+direccion_cliente+"-"+telefono_cliente)
+		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/guardar_ubicacion.php?jsoncallback=?"
+		$.getJSON(archivoValidacion, { identicacion_cliente:identicacion_cliente ,nombre_cliente:nombre_cliente,direccion_cliente:		    
+		direccion_cliente,telefono_cliente:telefono_cliente,coordenadas:coordenadas})		
+		.done(function(respuestaServer) {
+				if(respuestaServer.validacion == "OK"){
+				alert(respuestaServer.datoUno)
+				alert("DATOS INGRESADOS OK");
+				}else{
+				/// ejecutar una conducta cuando la validacion falla
+				alert("ERROR INGRESO DE DATOS");
+				}
+		});
+		return false;
+	    }
 			}
 			function showGPS_cliente(position){
 					var lat=position.coords.latitude;
 					var long=position.coords.longitude;
 					var coordenadas_cli=lat+","+long;
-					return coordenadas_cli;
-			}
+					alert(coordenadas_cli)
+					var identicacion_cliente = $("#identicacion_cliente").val();
+		var nombre_cliente= $("#nombre_cliente").val();
+		var direccion_cliente = $("#direccion_cliente").val();
+		var telefono_cliente = $("#telefono_cliente").val();
+		//alert(nombre_cliente+"-"+direccion_cliente+"-"+telefono_cliente)
+		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/guardar_ubicacion.php?jsoncallback=?"
+		$.getJSON(archivoValidacion, { identicacion_cliente:identicacion_cliente ,nombre_cliente:nombre_cliente,direccion_cliente:		    
+		direccion_cliente,telefono_cliente:telefono_cliente,coordenadas:lat})		
+		.done(function(respuestaServer) {
+				if(respuestaServer.validacion == "OK"){
+				alert(respuestaServer.datoUno)
+				alert("DATOS INGRESADOS OK");
+				}else{
+				/// ejecutar una conducta cuando la validacion falla
+				alert("ERROR INGRESO DE DATOS");
+				}
+		});
+		return false;	
+		}
 	
 	
 	$(document).ready(function () {
