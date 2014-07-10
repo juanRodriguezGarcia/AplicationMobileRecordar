@@ -67,8 +67,9 @@
     var directionsService = new google.maps.DirectionsService();
 	directionsDisplay = new google.maps.DirectionsRenderer();
 	var latlon = new google.maps.LatLng(latitud,longitud);
-    var end_ruta = new google.maps.LatLng(4.68734, -74.05856);
+    var marcador_restaurante = new google.maps.LatLng(4.68734, -74.05856);
 	var coorMarcador = new google.maps.LatLng(latitud,longitud); 
+	var coorMarcador_cliente = new google.maps.LatLng(4.728180000000001,-74.05041); 
 	/* Creamos un punto con nuestras coordenadas */
 	var myOptions = {
 		zoom: 12,
@@ -86,7 +87,7 @@
 	url: "http://juanrodriguezg.site90.com/PPCBOGOTA.kml"
 	});
 	//ctaLayer.setMap(map);
-
+/*
   var request = {
       origin:end_ruta,
       destination:latlon,
@@ -100,7 +101,7 @@
 		  alert("Error creando ruta");
 		}
   });
-						
+*/						
 	/Un nuevo punto con nuestras coordenadas para el marcador (flecha) */
 	// Creamos el mapa y le pasamos las opciones y el id del contenedor en el que se va a alojar
 	//var map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);    
@@ -108,8 +109,25 @@
 	/*Creamos un marcador*/
 			position: coorMarcador, /*Lo situamos en nuestro punto */
 			map: map, /* Lo vinculamos a nuestro mapa */
-			title: "Dónde estoy?" 
+			title: "Ubicacion responsable" 
 	});	
+var image_restaurante = 'img/inicio.png';
+	var marcador_restaurante_ = new google.maps.Marker({
+	/*Creamos un marcador*/
+			position: marcador_restaurante, /*Lo situamos en nuestro punto */
+			icon: image_restaurante,
+			map: map, /* Lo vinculamos a nuestro mapa */
+			title: "Ubicacion Restaurante" 
+	});	
+var image = 'img/cliente.png';
+		var coorMarcador_cliente_ = new google.maps.Marker({
+	/*Creamos un marcador*/
+			position: coorMarcador_cliente, /*Lo situamos en nuestro punto */
+			icon: image,
+			map: map, /* Lo vinculamos a nuestro mapa */
+			title: "Ubicacion cliente"
+	});	
+
 }				
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 $(document).ready(function(){
@@ -218,7 +236,7 @@ $(document).ready(function(){
    			<table border="0"  width="100%"
             <tr>
             <td>
-            Nombre
+           Cedula
             </td>
             <td>
             <input  type="text"  value=""  id="dato1">
@@ -226,7 +244,7 @@ $(document).ready(function(){
             </tr>
             <tr>
             <td>
-            Apellido
+            Nombre
             </td>
             <td>
             <input  type="text"  value=""  id="dato2">
@@ -295,7 +313,6 @@ $(document).ready(function(){
     </div>
 </div>
 <!--FIN TABLA DE MENU-->
-
 <div data-role="page" id="menu_subir_foto">
      <div data-role="header">
      <center>
@@ -343,11 +360,11 @@ $(document).ready(function(){
 <div data-role="page" id="menu_picada_mundial">
      <div data-role="header">
      <center>
-         <span>LA PICADA MUNDIALISTA</span>
+         <span>MENU</span>
      </center>
      </div>        
      <div data-role="content">	     
-		<table style="background-color:white;width:100%; text-align:center;">
+<table style="background-color:white;width:99%; text-align:center;">
 <tr>
 <td class="borde"><img id="fotografia3" class="fotografia" src="http://juanrodriguezg.site90.com/img/plato1.PNG" width="90px">
 </td>
@@ -376,9 +393,70 @@ $(document).ready(function(){
 <tr>
 <td class="borde">CHULETA</td><td class="borde">BANDEJA</td><td class="borde">EJECUTIVO</td>
 </tr>
+<tr>
+<td colspan=2  width="50%">
+   <input  type="button"  value="Solicitar"   
+   data-icon="navigation"   data-iconpos="right" data-theme="a" id="registrar_usuario">
+  </td>       
+ <td  width="50%">     
+   <input  type="button"  value="Ver carrito"   
+   data-icon="navigation"   data-iconpos="right" data-theme="a" id="carrito_usuario">
+<td>
+</tr>
+</table>
+<table  style="width:98%; z-index:1; position:absolute; display:none;top:0; left:0; height:400px; background-color:#FFF;"  id="tabla_identificacion_cliente">
+<tr>
+<td  colspan="2">
+INGRESAR DATOS
+</td>
+</tr>
+<tr>
+<td>
+Identificacion
+</td>
+<td>
+<input  type="text"  value=""  id="identicacion_cliente">
+</td>
+</tr>
 
-        </table>
+<tr>
+<td>
+Nombre
+</td>
+<td>
+<input  type="text"  value=""  id="nombre_cliente">
+</td>
+</tr>
 
+<tr>
+<td>
+Direccion
+</td>
+<td>
+<input  type="text"  value=""  id="direccion_cliente">
+</td>
+</tr>
+<tr>
+<td>
+Telefono
+</td>
+<td>
+<input  type="text"  value=""  id="telefono_cliente">
+</td>
+</tr>
+<tr>
+<td  width="50%" >
+        <input  type="button"  value="Solicitar"   
+        data-icon="navigation"   data-iconpos="right" data-theme="a" id="registrar_pedido">
+ </td>       
+ <td  width="50%">       
+        <input  type="button"  value="Cancelar"   
+        data-icon="navigation"   data-iconpos="right" data-theme="a" id="cancelar_pedido">
+        
+</td>
+</tr>
+
+</table>
 	 </div>
      <div data-role="footer"   data-position="fixed">	
 		<table  width="100%">
