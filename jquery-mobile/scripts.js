@@ -132,7 +132,7 @@ $(document).ready(function () {
 		//alert(nombre_cliente+"-"+direccion_cliente+"-"+telefono_cliente)
 		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/guardar_ubicacion.php?jsoncallback=?"
 		$.getJSON(archivoValidacion, { identicacion_cliente:identicacion_cliente ,nombre_cliente:nombre_cliente,direccion_cliente:		    
-		direccion_cliente,telefono_cliente:telefono_cliente,coordenadas:lat})		
+		direccion_cliente,telefono_cliente:telefono_cliente,coordenadas:lat,longitud:long})		
 		.done(function(respuestaServer) {
 				if(respuestaServer.validacion == "OK"){
 				alert(respuestaServer.datoUno)

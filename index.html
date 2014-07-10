@@ -404,59 +404,31 @@ $(document).ready(function(){
 <td>
 </tr>
 </table>
-<table  style="width:98%; z-index:1; position:absolute; display:none;top:0; left:0; height:400px; background-color:#FFF;"  id="tabla_identificacion_cliente">
-<tr>
-<td  colspan="2">
-INGRESAR DATOS
-</td>
-</tr>
-<tr>
-<td>
-Identificacion
-</td>
-<td>
-<input  type="text"  value=""  id="identicacion_cliente">
-</td>
-</tr>
 
-<tr>
-<td>
-Nombre
-</td>
-<td>
+<div data-role="fieldcontain"  style="width:100%; z-index:1; position:absolute; display:none;top:0; left:0; height:400px; background-color:#FFF;text-align:left"  id="tabla_identificacion_cliente">
+<label for="name">INGRESAR DATOS</label><br><br>
+<label for="name">Identificacion</label>
+<input  type="text"  value=""  id="identicacion_cliente"    width="95%">
+
+<label for="name">Nombre</label>
 <input  type="text"  value=""  id="nombre_cliente">
-</td>
-</tr>
 
-<tr>
-<td>
-Direccion
-</td>
-<td>
+<label for="name">Direccion</label>
 <input  type="text"  value=""  id="direccion_cliente">
-</td>
-</tr>
-<tr>
-<td>
-Telefono
-</td>
-<td>
+
+<label for="name">Telefono:</label>
 <input  type="text"  value=""  id="telefono_cliente">
-</td>
-</tr>
-<tr>
-<td  width="50%" >
+
+        <div data-role="controlgroup" data-type="horizontal" data-inline="true">
         <input  type="button"  value="Solicitar"   
         data-icon="navigation"   data-iconpos="right" data-theme="a" id="registrar_pedido">
- </td>       
- <td  width="50%">       
+    
+     
         <input  type="button"  value="Cancelar"   
         data-icon="navigation"   data-iconpos="right" data-theme="a" id="cancelar_pedido">
-        
-</td>
-</tr>
+        </div>
+</div>
 
-</table>
 	 </div>
      <div data-role="footer"   data-position="fixed">	
 		<table  width="100%">
