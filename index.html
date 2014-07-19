@@ -82,7 +82,6 @@
 	directionsDisplay.setMap(map);
 	 /*Creamos el mapa y lo situamos en su capa */
 	//AGREGA  UN DOCUMENTO  KML SUDIBO EN UN SERVIDOR  EN ESTE CASO SESUBIO EN UN SITIO PROPIO
-	
 	var ctaLayer = new google.maps.KmlLayer('http://juanrodriguezg.site90.com/PPCBOGOTA.kml',{ preserveViewport: true });
 	ctaLayer.setMap(map);
 /*
@@ -187,12 +186,17 @@ $(document).ready(function(){
 <!--LOGOIN-->
 <div data-role="page" >
 <div data-role="content">	
-<center>
-<form id="formulario" style="position:absolute; margin-top:40%; width:96%">
 <input type="hidden" id="nombredeusuario" name="nombredeusuario"  value="asell">
-<input type="submit"  id="botonLogin"   value="Bienvenido"  data-icon="star"   data-iconpos="right" data-theme="a">
-</form>	
-</center>
+<input data-role="button"  data-theme="a"  type="button"  id="botonLogin"   value=">>>Bienvenido<<<" width="90%">
+<br>
+<br>
+<div data-role="controlgroup" data-type="horizontal" data-inline="true" id="div_ajax_loader" align="center">
+<h5  align="center">
+SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
+</h5>
+<input type="text" id="identificacion_validar" name="identificacion_validar"  value="">
+<input data-role="button"  data-theme="a" type="submit"  id="botonLogin_validar"   value="Ingresar"  data-icon="star"   data-iconpos="right" >	
+</div>
 </div>
 </div>
 <!--FIN LOGIN-->
@@ -212,41 +216,65 @@ $(document).ready(function(){
      <div data-role="footer"   data-position="fixed" >	
 		<table  width="100%">
         <tr>
-        <td width="33%"  align="center">   
-        <input  type="button"  value="Crear"  id="botton_guardar" 
-            data-icon="star"   data-iconpos="right" data-theme="a"> 
-            </td>
-        <td width="33%"  align="center">
-        <input  type="button"  value="Foto &nbsp;"  id="botton_subir_foto" 
-        data-icon="star"  	     data-iconpos="right" data-theme="a">
-        </td>
-        <td width="33%"  align="center">
-           <input  type="button"  value="Buscar"  id="botton_buscar" 
-            data-icon="star"   data-iconpos="right" data-theme="a">
-        </td>
-        </tr>
-        
-        <tr>
-        <td  width="33%"  align="center">
+        <td    align="center">
+    <div data-role="controlgroup" data-type="horizontal" data-inline="true" data-inset="true"  style="text-align:center">
         <input  type="button"  value="Menu"  id="boton_ver_menu" 
         data-icon="star"   data-iconpos="right" data-theme="a">
-        </td>
-        <td  width="33%"  align="center">
+        
         <input  type="button"  value="Mapa"  id="botton_ver_mapa" 
-        data-icon="star"   data-iconpos="right" data-theme="a" >
+        data-icon="star"   data-iconpos="right" data-theme="a">
+        </div>
         </td>
-        <td width="33%"  align="center">
-        </td>
-        </tr>
-        <tr  style="text-align:center">
-        <td><a href="www.facebook.com">Facebook</a></td>
-        <td></td>
-        <td><a href="www.youtube.com">Youtube</a></td>
         </tr>
         </table>
     </div>
 </div>
 <!--END INICIO-->
+
+
+
+<!--INICIO-->
+<div data-role="page" id="inicio_motorizado">
+    <div data-role="content">	
+    <table  width="100%"  align="center"  border="0">     
+      <tr>
+      <td >
+      <img src="img/imagen1.png" width="100%" height="360px">
+      </td>
+      </tr>
+            </table>
+    </div>
+     <div data-role="footer"   data-position="fixed" >	
+		<table  width="100%">
+        <tr>
+        <td  align="center">   
+        <div data-role="controlgroup" data-type="horizontal" data-inline="true" data-inset="true"  style="text-align:center">
+        <input  type="button"  value="Crear"  id="botton_guardar" 
+        data-icon="star"   data-iconpos="right" data-theme="a"  style="display:none"> 
+
+        <input  type="button"  value="subir Foto &nbsp;"  id="botton_subir_foto" 
+        data-icon="star"  	     data-iconpos="right" data-theme="a" style="display:none">
+
+         <input  type="button"  value="Buscar"  id="botton_buscar" 
+         data-icon="star"   data-iconpos="right" data-theme="a" style="display:none">
+        </div>
+        </td>
+        </tr>
+        </table>
+    </div>
+</div>
+<!--END INICIO-->
+
+
+
+
+
+
+
+
+
+<!--END INICIO MOTORIZADO-->
+
 <div data-role="page" id="menu_guardar">      
      <div data-role="content">	
    			<table border="0"  width="100%"
@@ -379,31 +407,37 @@ $(document).ready(function(){
          <span>MENU</span>
      </center>
      </div>        
-     <div data-role="content">	  
-    
-  
-  <ul data-role="listview" data-filter="true" data-inset="true" data-theme="b" data-dividertheme="b" data-autodividers="true" data-filter-placeholder="Filtrar lista">
+<div data-role="content">	    
+  <ul data-role="listview" data-filter="true" data-inset="true" data-theme="b" data-dividertheme="b" data-autodividers="false" data-filter-placeholder="Filtrar lista">
     <li data-role="list-divider">
     <h3>Platos</h3>
     <ul>	
-     <li>
-        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato5.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
+     <li data-icon="star">
+        <a href="#" id="agregar_al_carrito_uno" ><img src="http://juanrodriguezg.site90.com/img/plato5.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego, $15000</p></a>
+          <div data-role="controlgroup" data-type="horizontal" data-inline="true">
+          <input  type="button"  value="+">
+          <input  type="button"  value="-">
+          <input  type="button"  value="0">
+          <input  type="hidden"  value="0">
+          <input  type="button"  value="Agregar">
+          </div>
 	</li>
            <li>
-        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato4.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
+        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato4.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;POLLO
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
 	</li>
        <li>
-        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato3.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
+        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato3.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;CARNE
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
 	</li>
        <li>
-        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato2.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
+        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato2.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;SOPA
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
 	</li>
        <li>
-        <a href="#"><img src="http://juanrodriguezg.site90.com/img/plato1.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
+        <a href="#">
+     <img src="http://juanrodriguezg.site90.com/img/plato1.PNG" width="50" height="50"  class="ui-li-icon"/>		   &nbsp;&nbsp;&nbsp;BANDEJA
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
 	</li>
 
@@ -421,56 +455,44 @@ $(document).ready(function(){
     </ul>
     </li>
     </ul>
-        
-<div data-role="controlgroup" data-type="horizontal" data-inline="true">  
-   <input  type="button"  value="Solicitar"   
-   data-icon="navigation"   data-iconpos="right" data-theme="a" id="registrar_usuario">
-   
-      <input  type="button"  value="Ver carrito"   
-   data-icon="navigation"   data-iconpos="right" data-theme="a" id="carrito_usuario">
-</div>
-
-<div data-role="controlgroup" style="width:100%; z-index:1; position:absolute; display:none;top:0; left:0; height:400px; background-color:#FFF;text-align:left"  id="tabla_identificacion_cliente">
-<table  width="98%">
-<tr>
-<td>
-<br>
-<label for="name">INGRESAR DATOS</label><br><br>
-<label for="name">Identificacion</label>
-<input  type="text"  value=""  id="identicacion_cliente"    data-inset="true">
-
-<label for="name">Nombre</label>
-<input  type="text"  value=""  id="nombre_cliente" data-inset="true">
-
-<label for="name">Direccion</label>
-<input  type="text"  value=""  id="direccion_cliente" data-inset="true">
-
-<label for="name">Telefono:</label>
-<input  type="text"  value=""  id="telefono_cliente" data-inset="true">
-</td>
-</tr>
-</table>
-
-        <div data-role="controlgroup" data-type="horizontal" data-inline="true"  style="text-align:center">
-        <input  type="button"  value="Solicitar"   
-        data-icon="navigation"   data-iconpos="right" data-theme="a" id="registrar_pedido">
-    
-     
-        <input  type="button"  value="Cancelar"   
-        data-icon="navigation"   data-iconpos="right" data-theme="a" id="cancelar_pedido">
-        </div>
-</div>
-
-	 </div>
-     <div data-role="footer"   data-position="fixed">	
-		<table  width="100%">
-        <tr  style="text-align:center">
-        <td><a href="www.facebook.com">Facebook</a></td>
-        <td><a href="www.twiter.com">Twiter</a></td>
-        <td><a href="www.youtube.com">Youtube</a></td>
-        </tr>
-        </table>
+    <div data-role="controlgroup" data-type="horizontal" data-inline="true">  
+       <input  type="button"  value="Solicitar"   
+       data-icon="navigation"   data-iconpos="right" data-theme="a" id="registrar_usuario">
+       
+       <input  type="button"  value="Ver carrito"   
+       data-icon="navigation"   data-iconpos="right" data-theme="a" id="carrito_usuario">
     </div>
+<br> 
+    <div  style="z-index:1; position: absolute; top:0;display:none; background-color:white;
+    left:0; width:100%; text-align:center" id="tabla_identificacion_cliente">
+             <div  class="ui-field-contain"   data-inset="true" data-inline="false"  style="width:96%">
+                    <label for="name">INGRESAR DATOS</label><br><br>
+                    <label for="identicacion_cliente2">Identificacion</label>
+                    <input  type="text"  value=""  id="identicacion_cliente"   name="identicacion_cliente2">
+                    
+                    <label for="name">Nombre</label>
+                    <input  type="text"  value=""  id="nombre_cliente" >
+                    
+                    <label for="name">Direccion</label>
+                    <input  type="text"  value=""  id="direccion_cliente" >
+                    
+                    <label for="name">Telefono</label>
+                    <input  type="text"  value=""  id="telefono_cliente"  >
+                    
+                    <label for="textarea">Observaciones</label>
+                    <textarea rows="4" id="textarea"></textarea>
+            	   <br>
+                  <div data-role="controlgroup" data-type="horizontal" data-inline="true" data-inset="true" 
+                   style="text-align:center">
+                    <input  type="button"  value="Solicitar"   
+                    data-icon="navigation"   data-iconpos="right" data-theme="a" id="registrar_pedido">
+                    <input  type="button"  value="Cancelar"   
+                    data-icon="navigation"   data-iconpos="right" data-theme="a" id="cancelar_pedido">
+                   </div>
+            </div>   
+    </div>
+</div><!--END  SOLICITA PEDIDO MENU CONTENT-->
+     <div data-role="footer"   data-position="fixed"><!--CONTENIDO FOOTER--></div>
 </div>
 
 </body>

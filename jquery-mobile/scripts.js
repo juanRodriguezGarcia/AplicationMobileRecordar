@@ -1,8 +1,9 @@
 // JavaScript Document
 $(document).ready(function () {
 	$('.ui-page').css('background-color', '#ECF2FE');
-	$('#formulario').submit(function() {
-		// recolecta los valores que inserto el usuario
+	$('#botonLogin').click(function() {
+	$("#div_ajax_loader").html("<img  src='./img/default-loader.gif'  width='35px'>");
+    	// recolecta los valores que inserto el usuario
 		var datosUsuario = $("#nombredeusuario").val()
 		var datosPassword = "";
 		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/server2.php?jsoncallback=?"
@@ -36,6 +37,39 @@ $(document).ready(function () {
 		return false;
 	})
 });
+$(document).ready(function () {
+		$('#botonLogin_validar').click(function() {
+		var identificacion_usuario = $("#identificacion_validar").val()
+		//alert("hola")
+		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/validate.php?jsoncallback=?"
+		$.getJSON(archivoValidacion, {ident:identificacion_usuario})		
+		.done(function(respuestaServer) {
+				if(respuestaServer.validacion == "OK"){
+				alert("BIENVENIDO \n"+respuestaServer.nombre)
+				$.mobile.changePage("#inicio");
+				$("#nombre_cliente").val(respuestaServer.nombre);
+				$("#direccion_cliente").val(respuestaServer.direccion);
+				$("#telefono_cliente").val(respuestaServer.telefono);
+				$("#identicacion_cliente").val(identificacion_usuario);
+				$("#botton_guardar").hide(100);
+				$("#botton_buscar").hide(100);
+				}
+				if(respuestaServer.validacion == "NO"){
+				alert("CLIENTE NO EXISTE\nPOR FAVOR INGRESA A LA APLICACION \nY REGISTRESE");	
+				}
+				if(respuestaServer.validacion == "error"){
+				alert("ERROR ESTRUCTURA DATOS");	
+				}
+				if(respuestaServer.validacion == "OKUSER"){
+				alert("USUARIO  MOTORIZADO");
+				$.mobile.changePage("#inicio_motorizado");	
+				}
+				
+				
+		});
+		return false;
+			})
+	});
 $(document).ready(function () {
 		$('#botton_volver').click(function() {
 		$.mobile.changePage("#inicio")
@@ -92,6 +126,13 @@ $(document).ready(function () {
 		var coordenadas=OptenerCoordenadas_cliente();
 		});
 	});	
+		$(document).ready(function () {
+		$('#agregar_al_carrito_uno').click(function() {
+			alert("desea agregar");
+		document.getElementById("div_agregar_uno").style.display="block";
+		});
+	});	
+	
 	
 			function OptenerCoordenadas_cliente(){
 				if(navigator.geolocation){
