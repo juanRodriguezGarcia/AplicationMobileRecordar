@@ -51,8 +51,6 @@ $(document).ready(function () {
 				$("#direccion_cliente").val(respuestaServer.direccion);
 				$("#telefono_cliente").val(respuestaServer.telefono);
 				$("#identicacion_cliente").val(identificacion_usuario);
-				$("#botton_guardar").hide(100);
-				$("#botton_buscar").hide(100);
 				}
 				if(respuestaServer.validacion == "NO"){
 				alert("CLIENTE NO EXISTE\nPOR FAVOR INGRESA A LA APLICACION \nY REGISTRESE");	
@@ -74,64 +72,58 @@ $(document).ready(function () {
 		$('#botton_volver').click(function() {
 		$.mobile.changePage("#inicio")
 		});
-	});
-	
-$(document).ready(function () {
 		$('#botton_guardar').click(function() {
+			alert("MOVILE");
 		$.mobile.changePage("#menu_guardar")
 		});
-	});	
-	/////////////////////////////////////////////////////////
-$(document).ready(function () {
+	    /////////////////////////////////////////////////////////
 		$('#botton_buscar').click(function() {
 		$.mobile.changePage("#menu_consultar")
 		});
-	});	
-	////////////////////////////////////////////////////////	
-	$(document).ready(function () {
+	    ////////////////////////////////////////////////////////	
 		$('#botton_subir_foto').click(function() {
 		$.mobile.changePage("#menu_subir_foto")
 		});
-	});	
-	////////////////////////////////////////////////////
-		$(document).ready(function () {
+	    ////////////////////////////////////////////////////
 		$('#botton_ver_mapa').click(function() {
 		$.mobile.changePage("#menu_maapa")
 		});
-	});	
-	////////////////////////////////////////////////////
-		$(document).ready(function () {
+	    ////////////////////////////////////////////////////
 		$('#boton_ver_menu').click(function() {
 		$.mobile.changePage("#menu_cuenta")
 		});
-	});	
-	////////////////////////////////////////////////////
-$(document).ready(function () {
-		$('#botton_agregar').click(function() {
+	    ////////////////////////////////////////////////////
+	    $('#botton_agregar').click(function() {
 		//$.mobile.changePage("#inicio")
 		////////////////////////////////////////OPTENER COORDENADAS CLIENTE/////////////////////////
 		OptenerCoordenadas();
 		});
-	});	
-	
-	$(document).ready(function () {
 		$('#registrar_usuario').click(function() {
-		document.getElementById("tabla_identificacion_cliente").style.display="block";
+		$.mobile.changePage( "#solicitar_pedido", { role: "dialog" } );
 		});
-	});	
-	
-	$(document).ready(function () {
 		$('#registrar_pedido').click(function() {
-		document.getElementById("tabla_identificacion_cliente").style.display="none";
+		$.mobile.changePage($('#menu_cuenta'), 'pop', false, true);
 		var coordenadas=OptenerCoordenadas_cliente();
+		});	
+		///////CIERRA UN DIALOGO ////////
+		$('#close_dialog').click(function() {
+		 $.mobile.changePage($('#menu_cuenta'), 'pop', false, true); 
 		});
-	});	
-		$(document).ready(function () {
-		$('#agregar_al_carrito_uno').click(function() {
-			alert("desea agregar");
-		document.getElementById("div_agregar_uno").style.display="block";
+		$('#cancelar_pedido').click(function() {
+		 $.mobile.changePage($('#menu_cuenta'), 'pop', false, true); 
 		});
-	});	
+	    
+		$('#abrir_dialogo').click(function() {
+			alert("abrir");
+		$.mobile.changePage( "#dialogPage", { role: "dialog" } );
+		});
+		
+	
+	//////DIALOGO////
+
+	
+	
+});  ////end  FUNCTION READY
 	
 	
 			function OptenerCoordenadas_cliente(){
@@ -282,4 +274,10 @@ function Optener_coordenadas_direccion(latitud,longitud){
 }		
 		
 		///////////////////////////////////////FIN COORDENADAS CLIENTE/////////////////////////////////
+		
+		///////FUNCION  CUADRO DE DIALOGO//////
+		
+
+	
+		
 		

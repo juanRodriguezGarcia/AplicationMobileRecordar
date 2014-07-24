@@ -201,7 +201,6 @@ SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
 </div>
 <!--FIN LOGIN-->
 
-
 <!--INICIO-->
 <div data-role="page" id="inicio">
     <div data-role="content">	
@@ -248,15 +247,15 @@ SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
 		<table  width="100%">
         <tr>
         <td  align="center">   
-        <div data-role="controlgroup" data-type="horizontal" data-inline="true" data-inset="true"  style="text-align:center">
+  <div data-role="controlgroup" data-type="horizontal" data-inline="true" data-inset="true"  style="text-align:center">
         <input  type="button"  value="Crear"  id="botton_guardar" 
-        data-icon="star"   data-iconpos="right" data-theme="a"  style="display:none"> 
+        data-icon="star"   data-iconpos="right" data-theme="a" > 
 
         <input  type="button"  value="subir Foto &nbsp;"  id="botton_subir_foto" 
-        data-icon="star"  	     data-iconpos="right" data-theme="a" style="display:none">
+        data-icon="star"  	     data-iconpos="right" data-theme="a" >
 
          <input  type="button"  value="Buscar"  id="botton_buscar" 
-         data-icon="star"   data-iconpos="right" data-theme="a" style="display:none">
+         data-icon="star"   data-iconpos="right" data-theme="a" >
         </div>
         </td>
         </tr>
@@ -346,15 +345,9 @@ SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
    <div data-role="content">	
         <div  id="tabla_busqueda" style="width:100%; background-color:#FFF; opacity:0.95"></div>
    </div>
-         <div data-role="footer"   data-position="fixed">	
-		<table  width="100%">
-        <tr  style="text-align:center">
-        <td><a href="www.facebook.com">Facebook</a></td>
-        <td><a href="www.twiter.com">Twiter</a></td>
-        <td><a href="www.youtube.com">Youtube</a></td>
-        </tr>
-        </table>
-    </div>
+  <div data-role="footer"   data-position="fixed">	
+<input type="search" name="buscar_texto"  id="buscar_texto" placeHolder="Buscar"  data-theme="a">
+   </div>
 </div>
 <!--FIN TABLA DE MENU-->
 <div data-role="page" id="menu_subir_foto">
@@ -455,18 +448,40 @@ SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
     </ul>
     </li>
     </ul>
-    <div data-role="controlgroup" data-type="horizontal" data-inline="true">  
-       <input  type="button"  value="Solicitar"   
-       data-icon="navigation"   data-iconpos="right" data-theme="a" id="registrar_usuario">
-       
-       <input  type="button"  value="Ver carrito"   
-       data-icon="navigation"   data-iconpos="right" data-theme="a" id="carrito_usuario">
+    <div data-role="controlgroup" data-type="horizontal" data-inline="true" align="center">  
+       <a href="#" data-role="button"  data-theme="a" id="registrar_usuario" >Solicitar</a>   
+       <a href="#dialogPage" data-role="button" data-theme="a" data-rel="dialog" data-transition="pop" data-close-btn="none">Carrito</a>
     </div>
 <br> 
-    <div  style="z-index:1; position: absolute; top:0;display:none; background-color:white;
-    left:0; width:100%; text-align:center" id="tabla_identificacion_cliente">
-             <div  class="ui-field-contain"   data-inset="true" data-inline="false"  style="width:96%">
-                    <label for="name">INGRESAR DATOS</label><br><br>
+</div><!--END  SOLICITA PEDIDO MENU CONTENT-->
+     <div data-role="footer"   data-position="fixed"><!--CONTENIDO FOOTER--></div>
+</div>
+
+
+<div data-role="page" id="dialogPage">
+<div data-role="header" >
+<img src="img/imagen1.png" width="50" height="45" style="float:right">
+</div>s
+    <div  data-role="content">
+    <p>DIALOGO EJEMPLO</p>
+    <p>ejemplo dos</p>
+    <input  type="button"  id="close_dialog"  value="Cerrar">
+    </div>
+<div data-role="footer"  data-theme="a">
+<h2>PRODUCTOS EN MI CARRO</h2>
+</div>
+</div>
+
+
+
+<div data-role="page" id="solicitar_pedido">
+<div data-role="header" >
+<h2 style="float:left; margin-left:30px;">REGISTRAR DATOS</h2>
+</div>
+<div  data-role="content" >
+   <div data-role="controlgroup" data-type="vertical" data-inline="false" data-inset="true" 
+                   style="text-align:left">
+                    <label for="name">INGRESAR DATOS</label><br>
                     <label for="identicacion_cliente2">Identificacion</label>
                     <input  type="text"  value=""  id="identicacion_cliente"   name="identicacion_cliente2">
                     
@@ -481,19 +496,16 @@ SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
                     
                     <label for="textarea">Observaciones</label>
                     <textarea rows="4" id="textarea"></textarea>
-            	   <br>
+    </div>
                   <div data-role="controlgroup" data-type="horizontal" data-inline="true" data-inset="true" 
                    style="text-align:center">
-                    <input  type="button"  value="Solicitar"   
-                    data-icon="navigation"   data-iconpos="right" data-theme="a" id="registrar_pedido">
-                    <input  type="button"  value="Cancelar"   
-                    data-icon="navigation"   data-iconpos="right" data-theme="a" id="cancelar_pedido">
+                    <input  type="button"  value="Solicitar"    data-theme="a" id="registrar_pedido">
+                    <input  type="button"  value="Cancelar"  data-theme="a" id="cancelar_pedido">
                    </div>
-            </div>   
+</div>   
+        <div data-role="footer"  data-theme="a">
+        <h2>FOOTER</h2>
+        </div>
     </div>
-</div><!--END  SOLICITA PEDIDO MENU CONTENT-->
-     <div data-role="footer"   data-position="fixed"><!--CONTENIDO FOOTER--></div>
-</div>
-
 </body>
 </html>
