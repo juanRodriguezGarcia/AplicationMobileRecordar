@@ -185,17 +185,17 @@ $(document).ready(function(){
 <body> 
 <!--LOGOIN-->
 <div data-role="page" >
-<div data-role="content">	
+<div data-role="content"  style="background-color:#3CF; opacity:0.90">	
 <input type="hidden" id="nombredeusuario" name="nombredeusuario"  value="asell">
-<input data-role="button"  data-theme="a"  type="button"  id="botonLogin"   value=">>>Bienvenido<<<" width="90%">
+<input data-role="button"  data-theme="a"  type="button"  id="botonLogin"   value=">>>Bienvenido<<<" width="95%">
 <br>
 <br>
-<div data-role="controlgroup" data-type="horizontal" data-inline="true" id="div_ajax_loader" align="center">
-<h5  align="center">
+<div data-role="controlgroup" data-type="vertical" data-inline="true" id="div_ajax_loader" align="center">
+<h5  align="center" >
 SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
 </h5>
 <input type="text" id="identificacion_validar" name="identificacion_validar"  value="">
-<input data-role="button"  data-theme="a" type="submit"  id="botonLogin_validar"   value="Ingresar"  data-icon="star"   data-iconpos="right" >	
+<input data-role="button"  data-theme="a" type="button"  id="botonLogin_validar"   value="Ingresar" >	
 </div>
 </div>
 </div>
@@ -408,7 +408,7 @@ SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
      <li data-icon="star">
         <a href="#" id="agregar_al_carrito_uno" ><img src="http://juanrodriguezg.site90.com/img/plato5.PNG" width="50" height="50"  class="ui-li-icon"/>&nbsp;&nbsp;&nbsp;BANDEJA
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego, $15000</p></a>
-          <div data-role="controlgroup" data-type="horizontal" data-inline="true">
+          <div data-role="controlgroup" data-type="horizontal" data-inline="true" style="display:none">
           <input  type="button"  value="+">
           <input  type="button"  value="-">
           <input  type="button"  value="0">
@@ -433,18 +433,17 @@ SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
      <img src="http://juanrodriguezg.site90.com/img/plato1.PNG" width="50" height="50"  class="ui-li-icon"/>		   &nbsp;&nbsp;&nbsp;BANDEJA
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Arroz, plataco, carne,juego</p></a>
 	</li>
-
     <li><a href="#">Burgos</a></li>	
     </ul>
     </li>
-    <li data-role="list-divider"><h3>Bebidas</h3><ul>
-    <li><a href="#">Badajoz</a></li>
-    <li><a href="#">Caceres</a></li>
-    </ul></li>
-    <li data-role="list-divider"><h3>Postres</h3>
+    <li data-role="list-divider"  id="lista_bebidas"><h3>Bebidas</h3>
+        <ul>
+            <div id="prueba_lista_automatica"></div>
+        </ul>
+    </li>
+    <li data-role="list-divider" id="lista_postres"><h3>Postres</h3>
     <ul>
-    <li><a href="#">Arros con leche</a></li>
-    <li><a href="#">Tres leches</a></li>
+		 <div id="div_lista_postres"></div>
     </ul>
     </li>
     </ul>
@@ -454,14 +453,14 @@ SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
     </div>
 <br> 
 </div><!--END  SOLICITA PEDIDO MENU CONTENT-->
-     <div data-role="footer"   data-position="fixed"><!--CONTENIDO FOOTER--></div>
+     
 </div>
 
 
 <div data-role="page" id="dialogPage">
 <div data-role="header" >
 <img src="img/imagen1.png" width="50" height="45" style="float:right">
-</div>s
+</div>
     <div  data-role="content">
     <p>DIALOGO EJEMPLO</p>
     <p>ejemplo dos</p>
@@ -480,8 +479,7 @@ SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
 </div>
 <div  data-role="content" >
    <div data-role="controlgroup" data-type="vertical" data-inline="false" data-inset="true" 
-                   style="text-align:left">
-                    <label for="name">INGRESAR DATOS</label><br>
+                   style="text-align:left; font-size:11px">
                     <label for="identicacion_cliente2">Identificacion</label>
                     <input  type="text"  value=""  id="identicacion_cliente"   name="identicacion_cliente2">
                     
@@ -495,7 +493,7 @@ SI YA ESTAS REGISTRADO POR  FAVOR  INGRESA TU NUMERO DE CEDULA
                     <input  type="text"  value=""  id="telefono_cliente"  >
                     
                     <label for="textarea">Observaciones</label>
-                    <textarea rows="4" id="textarea"></textarea>
+                    <textarea rows="2" id="textarea"></textarea>
     </div>
                   <div data-role="controlgroup" data-type="horizontal" data-inline="true" data-inset="true" 
                    style="text-align:center">

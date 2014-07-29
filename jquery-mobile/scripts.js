@@ -117,11 +117,44 @@ $(document).ready(function () {
 			alert("abrir");
 		$.mobile.changePage( "#dialogPage", { role: "dialog" } );
 		});
-		
-	
-	//////DIALOGO////
+	   //////FIN DIALOGO////
+	   //////INICIO  DEPLIEGUE LISTAS ////
+	$('#lista_bebidas').click(function() {
+	var lista="<li><a href='#'>Badajoz</a></li> <li><a href='#'>Badajoz</a></li><li><a href='#'>Caceres</a></li><li><a href='#'>Caceres</a></li><li><a href='#'>Caceres</a></li>";
+	$("#prueba_lista_automatica").html(lista);	
+	$("#prueba_lista_automatica").listview();
+	$("#prueba_lista_automatica").listview('refresh');
+	});
+	$('#lista_postres').click(function() {
+		var datosUsuario = "asell";
+		var datosPassword = "asell";
+		archivoValidacion = "http://juanrodriguezg.site90.com/webservices/consulta1.php?jsoncallback=?"
+		 //alert(datosPassword)
+		$.getJSON(archivoValidacion, { usuario:datosUsuario ,password:datosPassword})
+		.done(function(respuestaServer) {
+				if(respuestaServer.validacion == "OK"){
+				var valor_select=respuestaServer.select1;
+				var valor_select_value=respuestaServer.select_value;
+				var valor_select_value_array=valor_select_value.split("-");
+				//alert(valor_select_value);
+				var array_select1=valor_select.split("-");
+				var cadena_lista="";   
+					for ( i = 0; i < array_select1.length-1; i ++ ) {
+						cadena_lista=cadena_lista+"<li><a href='#'>"+valor_select_value_array[i]+"  Valor$ "+" "+array_select1[i]+"</a></li>";
+					}
+				$("#div_lista_postres").html(cadena_lista);	
+				$("#div_lista_postres").listview();
+				$("#div_lista_postres").listview('refresh');
+				//alert(respuestaServer.select1);
+				}else{
+				/// ejecutar una conducta cuando la validacion falla
+				alert("datos invalidos");
+				}
+		})
+		return true;	
+	});
+	////FIN DELPLIEGUE  LISTAS////
 
-	
 	
 });  ////end  FUNCTION READY
 	
@@ -274,9 +307,6 @@ function Optener_coordenadas_direccion(latitud,longitud){
 }		
 		
 		///////////////////////////////////////FIN COORDENADAS CLIENTE/////////////////////////////////
-		
-		///////FUNCION  CUADRO DE DIALOGO//////
-		
 
 	
 		
